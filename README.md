@@ -11,72 +11,82 @@
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=Dimontich
-$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-$ alias edit=<nano>
+$ export GITHUB_USERNAME=Dimontich     # Создать переменную окружения GITHUB_USERNAME
+$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.  # Создать переменную окружения GIST_TOKEN
+$ alias edit=<nano>  # Синоним команды edit (Будет вызван nano)
 ```
 
 ```ShellSession
-$ mkdir -p ${GITHUB_USERNAME}/workspace
-$ cd ${GITHUB_USERNAME}/workspace
-$ pwd
-/home/pcd02/Dimontich/workspace
-$ cd ..
-$ pwd
-/home/pcd02/Dimontich
+Создаем папки с рабочей облачтью
+
+$ mkdir -p ${GITHUB_USERNAME}/workspace # Создать папку /Dimontich/workspace
+$ cd ${GITHUB_USERNAME}/workspace # Перейти в папку /Dimontich/workspace
+$ pwd  # Вывод текущей директории
+  // /home/pcd02/Dimontich/workspace
+$ cd .. # Переход на раздел выше
+$ pwd   # Вывод текущей директории
+  //  /home/pcd02/Dimontich
 ```
 
 ```ShellSession
-$ mkdir -p workspace/tasks/
-$ mkdir -p workspace/projects/
-$ mkdir -p workspace/reports/
-$ cd workspace
+Создаем в рабочей области
+
+$ mkdir -p workspace/tasks/ # Создать папку /Dimontich/workspace/tasks/
+$ mkdir -p workspace/projects/ # Создать папку /Dimontich/workspace/projects/
+$ mkdir -p workspace/reports/ # Создать папку /Dimontich/workspace/reports/
+$ cd workspace  # Переход в /Dimontich/workspace
 ```
 
 ```ShellSession
+Скачивание и распаковка node js
 # Debian
-$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
---2019-03-04 18:37:18--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz # Скачать указанный файл
+
+/* --2019-03-04 18:37:18--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
 Распознаётся nodejs.org (nodejs.org)… 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:162e, ...
 Подключение к nodejs.org (nodejs.org)|104.20.22.46|:443... соединение установлено.
 HTTP-запрос отправлен. Ожидание ответа… 200 OK
 Длина: 9356460 (8,9M) [application/x-xz]
 Сохранение в: «node-v6.11.5-linux-x64.tar.xz»
-
 node-v6.11.5-linux-x64.tar. 100%[=========================================>]   8,92M  7,01MB/s    in 1,3s    
+2019-03-04 18:37:21 (7,01 MB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]*/
 
-2019-03-04 18:37:21 (7,01 MB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
-
-$ tar -xf node-v6.11.5-linux-x64.tar.xz
-$ rm -rf node-v6.11.5-linux-x64.tar.xz
-$ mv node-v6.11.5-linux-x64 node
+$ tar -xf node-v6.11.5-linux-x64.tar.xz # Разархивировать архив
+$ rm -rf node-v6.11.5-linux-x64.tar.xz # Удалить архив
+$ mv node-v6.11.5-linux-x64 node  # Переименовать папку с nodejs
 ```
 
 ```ShellSession
-$ ls node/bin
-$ echo ${PATH}
+Дописать в PATH путь к node js
+
+$ ls node/bin # Вывод директорий и файлов в папке node/bin
+# node npm
+$ echo ${PATH}  # Вывод переменной окружения PATH
 $ export PATH=${PATH}:`pwd`/node/bin
-$ echo ${PATH}
-$ mkdir scripts
-$ cat > scripts/activate<<EOF
+$ echo ${PATH} # Вывод переменной окружения PATH
+$ mkdir scripts   # Создать папку /Dimontich/workspace/scripts
+$ cat > scripts/activate<<EOF # Запись указанной строки в файл /Dimontich/workspace/scripts/activate
 export PATH=\${PATH}:`pwd`/node/bin
 EOF
-$ source scripts/activate
+$ source scripts/activate  # Выполнить скрипт
 ```
 
 ```ShellSession
-$ npm install -g gistup
+Установка пакета gistup в node js
+$ npm install -g gistup # Установка пакета gistup в node js
 └─┬ gistup@0.1.3 
   ├─┬ optimist@0.3.7 
   │ └── wordwrap@0.0.3 
   └── queue-async@1.2.1
 
-$ ls node/bin
+$ ls node/bin  # Вывод директорий и файлов 
 gistup  gistup-open  gistup-rename  node  npm
 ```
 
 ```ShellSession
-$ cat > ~/.gistup.json <<EOF
+Настройка конфига модуля gistup
+
+$ cat > ~/.gistup.json <<EOF  # Вывод указанного текста в файл
 {
   "token": "${GIST_TOKEN}"
 }
