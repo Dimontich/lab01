@@ -74,13 +74,13 @@ $ source scripts/activate  # Выполнить скрипт
 ```ShellSession
 Установка пакета gistup в node js
 $ npm install -g gistup # Установка пакета gistup в node js
-└─┬ gistup@0.1.3 
+/*└─┬ gistup@0.1.3 
   ├─┬ optimist@0.3.7 
   │ └── wordwrap@0.0.3 
-  └── queue-async@1.2.1
+  └── queue-async@1.2.1*/
 
 $ ls node/bin  # Вывод директорий и файлов 
-gistup  gistup-open  gistup-rename  node  npm
+  //gistup  gistup-open  gistup-rename  node  npm
 ```
 
 ```ShellSession
