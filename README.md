@@ -4,24 +4,26 @@
 
 ## Tasks
 
-- [ ] 1. Ознакомиться со ссылками учебного материала
-- [ ] 2. Выполнить инструкцию учебного материала
-- [ ] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
+- [x] 1. Ознакомиться со ссылками учебного материала
+- [x] 2. Выполнить инструкцию учебного материала
+- [x] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export GIST_TOKEN=<сохраненный_токен>
-$ alias edit=<nano|vi|vim|subl>
+$ export GITHUB_USERNAME=Dimontich
+$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+$ alias edit=<nano>
 ```
 
 ```ShellSession
 $ mkdir -p ${GITHUB_USERNAME}/workspace
 $ cd ${GITHUB_USERNAME}/workspace
 $ pwd
+/home/pcd02/Dimontich/workspace
 $ cd ..
 $ pwd
+/home/pcd02/Dimontich
 ```
 
 ```ShellSession
@@ -34,6 +36,17 @@ $ cd workspace
 ```ShellSession
 # Debian
 $ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+--2019-03-04 18:37:18--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+Распознаётся nodejs.org (nodejs.org)… 104.20.22.46, 104.20.23.46, 2606:4700:10::6814:162e, ...
+Подключение к nodejs.org (nodejs.org)|104.20.22.46|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 9356460 (8,9M) [application/x-xz]
+Сохранение в: «node-v6.11.5-linux-x64.tar.xz»
+
+node-v6.11.5-linux-x64.tar. 100%[=========================================>]   8,92M  7,01MB/s    in 1,3s    
+
+2019-03-04 18:37:21 (7,01 MB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
+
 $ tar -xf node-v6.11.5-linux-x64.tar.xz
 $ rm -rf node-v6.11.5-linux-x64.tar.xz
 $ mv node-v6.11.5-linux-x64 node
@@ -53,7 +66,13 @@ $ source scripts/activate
 
 ```ShellSession
 $ npm install -g gistup
+└─┬ gistup@0.1.3 
+  ├─┬ optimist@0.3.7 
+  │ └── wordwrap@0.0.3 
+  └── queue-async@1.2.1
+
 $ ls node/bin
+gistup  gistup-open  gistup-rename  node  npm
 ```
 
 ```ShellSession
